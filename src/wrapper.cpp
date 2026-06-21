@@ -23,7 +23,12 @@ int main(void)
 #if defined(PLATFORM_WEB)
     InitWindow(getBrowserWindowWidth(), getBrowserWindowHeight(), PROJECT_NAME);
 #else
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(720, 480, "ConeFall");
+    //Scale Window size by DPI so its not tiny on like linux
+    Vector2 scale = GetWindowScaleDPI();
+    SetWindowSize((int)(720 * scale.x), (int)(480 * scale.y));
+
     // Load icon here
     // Image windowIcon;
     // if (std::filesystem::exists("../assets") == false) {
