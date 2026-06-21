@@ -2,6 +2,7 @@
 *.dsym
 main
 game
+.json
 /save/*
 
 a.out
